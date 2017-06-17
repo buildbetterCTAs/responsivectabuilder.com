@@ -1,64 +1,36 @@
 <template>
   <div id="app">
-    <!-- NAVIGATION & NOT AUTHENTICATED UI -->
-    <section class="hero" v-bind:class="{ 'is-fullheight': !authenticated }">
-      <div class="hero-head">
-        <header class="nav">
-          <div class="container">
-            <div class="nav-left">
-              <a href="/" class="nav-item is-brand">
-                <img src="./assets/logo.svg" alt="Responsive CTA Builder logo">
-              </a>
-              <!-- <a class="nav-item" href="https://docs.responsivectabuilder.com">Documentation</a> -->
-            </div>
-            <div class="nav-right">
-              <div class="nav-item" v-show="!authenticated">
-                <div class="field is-grouped">
-                  <p class="control">
-                    <a class="button is-primary" @click="login()">Login</a>
-                  </p>
+    <section class="hero is-medium">
+      <div class="hero-body has-text-centered">
+        <div class="container">
+          <img class="image" style="margin: 0 auto 1rem auto; max-width: 500px; width: 100%;" src="./assets/wordmark.svg" alt="Logo">
+          <h1 class="title is-spaced">Coming Soon</h1>
+          <h2 class="subtitle">Request Beta Access</h2>
+          <!-- BEGIN MAILCHIMP -->
+          <div id="mc_embed_signup">
+            <form action="//responsivectabuilder.us15.list-manage.com/subscribe/post?u=5dc16787f107b34340beed700&amp;id=034a6081d2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll" class="field has-addons has-addons-centered">
+                <div class="mc-field-group control">
+                  <input type="email" placeholder="Email" value="" name="EMAIL" class="input required email" id="mce-EMAIL">
+                </div>
+                <div id="mce-responses" class="clear">
+                  <div class="response" id="mce-error-response" style="display:none"></div>
+                  <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                  <input type="text" name="b_5dc16787f107b34340beed700_034a6081d2" tabindex="-1" value="">
+                </div>
+                <div class="clear control">
+                  <input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button is-primary">
                 </div>
               </div>
-              <a class="nav-item" @click="logout()" v-show="authenticated">Logout</a>
-            </div>
+            </form>
           </div>
-        </header>
-      </div>
-      <div v-show="!authenticated" class="hero-body grey50">
-        <div class="container has-text-centered">
-          <p class="title is-4">Log in to begin building your Call-to-Actions</p>
-          <div>
-            <a class="button is-primary" @click="login()">Login</a>
-          </div>
+          <!-- END MAILCHIMP -->
         </div>
       </div>
     </section>
-
-    <!-- CTA TYPE SELECT -->
-    <div v-if="authenticated">
-      <section class="section grey50">
-        <div class="container">
-          <b-field label="Select CTA Type">
-            <b-select v-model="ctaStyle">
-              <option value="standard">Standard</option>
-              <option value="hubspot">HubSpot</option>
-            </b-select>
-          </b-field>
-        </div>
-      </section>
-
-      <!-- LOGIC TO SHOW CTA BUILDER TYPE BASED ON SELECTED TYPE -->
-      <div v-if="ctaStyle === 'standard'">
-        <standard></standard>
-      </div>
-      <div v-else-if="ctaStyle === 'hubspot'">
-        <hubspot></hubspot>
-      </div>
-      <div v-else>
-        🚀
-      </div>
-    </div>
-
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
@@ -83,75 +55,8 @@
 </template>
 
 <script>
-  import standard from './components/builder/builder-standard'
-  import hubspot from './components/builder/builder-hubspot'
-
   export default {
-    name: 'app',
-    data: function () {
-      return {
-        ctaStyle: 'standard',
-        authenticated: false,
-        secretThing: '',
-        lock: new Auth0Lock('fTi1j_-M7Xoe2bvTMqxLG9p8ewqupq06', 'responsivectabuilder.auth0.com', {
-          rememberLastLogin: true,
-          theme: {
-            'logo': 'https://github.com/buildbetterCTAs/branding/raw/master/img/logo.png',
-            'primaryColor': '#1385e8'
-          },
-          languageDictionary: {
-            title: ''
-          }
-        })
-      }
-    },
-    mounted () {
-      var self = this
-      this.$nextTick(function () {
-        self.authenticated = checkAuth()
-        self.lock.on('authenticated', (authResult) => {
-          console.log('authenticated')
-          localStorage.setItem('id_token', authResult.idToken)
-          self.lock.getProfile(authResult.idToken, (error, profile) => {
-            if (error) {
-              console.error(error)
-              return
-            }
-            // Set the token and user profile in local storage
-            localStorage.setItem('profile', JSON.stringify(profile))
-            self.authenticated = true
-          })
-        })
-        self.lock.on('authorization_error', (error) => {
-          console.error(error)
-        })
-      })
-    },
-    events: {
-      'logout': function () {
-        this.logout()
-      }
-    },
-    methods: {
-      login () {
-        this.lock.show()
-      },
-      logout () {
-        // To log out, we just need to remove the token and profile from local storage
-        localStorage.removeItem('id_token')
-        localStorage.removeItem('profile')
-        this.authenticated = false
-        this.$toast.open('Logged Out')
-      }
-    },
-    components: {
-      standard,
-      hubspot
-    }
-  }
-
-  function checkAuth () {
-    return !!localStorage.getItem('id_token')
+    name: 'app'
   }
 </script>
 
@@ -185,111 +90,9 @@ $fullhd: $grid
 html
   background-color: $grey50
 
-.footer
+.footer,
+.grey50,
+.hero
   background-color: $grey50
 
-.grey50
-  background-color: $grey50
-
-.profile
-  img
-    border-radius: 2px
-
-.container
-  &.editor
-    max-width: $grid - (128px * 1.5)
-
-    .b-tabs // sass-lint:disable-line class-name-format
-      margin: 0 -5px
-
-      .tab-content // sass-lint:disable-line class-name-format
-        flex-direction: column
-        overflow: visible
-
-      .tabs
-        margin: 0 5px
-
-        &:not(:last-child)
-          margin-bottom: 0
-
-      .boxWrapper
-        padding: 0 5px 5px
-
-        .box
-          border-radius: 0 0 5px 5px
-
-    .title
-      line-height: 1.3
-
-.borderRadiusSlider
-  height: 32px
-  margin-right: 8px
-
-  & + p
-    display: inline-block
-    line-height: 32px
-    position: absolute
-
-.ctaWidthSlider
-  margin: 0 auto
-  max-width: 1000px
-
-  input
-    &[type="range"]
-      width: 100%
-
-// AUTH0 Lock Customizations
-
-// sass-lint:disable-all
-
-.auth0-lock
-  &.auth0-lock
-    .auth0-lock-header-bg
-      display: none !important
-
-    &.auth0-lock-opened
-      .auth0-lock-widget
-        box-shadow: none !important
-
-.auth0-lock-overlay
-  background: rgba(0, 0, 0, .8) !important
-
-// sass-lint:enable-all
-
-</style>
-
-<!-- EMBEDER STYLES -->
-
-<style lang="sass">
-$white: #fff
-$black: #000
-$grey300: #e0e0e0
-$grey400: #bdbdbd
-$grey500: #9e9e9e
-
-// Embed Section
-pre
-  border-radius: 4px
-
-.embedCopy
-  position: relative
-  width: 100%
-
-  &:not(:last-child)
-    margin-bottom: 16px
-
-  .embedCopyButton
-    background-color: $grey400
-    border-radius: 4px 0
-    bottom: 0
-    color: $white
-    cursor: pointer
-    font-size: 14px
-    font-weight: bold
-    padding: 2px 10px
-    position: absolute
-    right: 0
-
-    &:hover
-      background-color: $grey500
 </style>
