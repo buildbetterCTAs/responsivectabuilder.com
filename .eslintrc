@@ -1,0 +1,15 @@
+{
+  "extends": "standard",
+  "plugins": [
+    "standard",
+    "promise",
+    "html"
+  ],
+  "globals": {
+    "ga": true
+  },
+  "rules": {
+    "no-new": "off",
+    "no-undef": "off"
+  }
+}
