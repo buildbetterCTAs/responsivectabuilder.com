@@ -1,41 +1,37 @@
 <template>
   <div id="app">
-    <section class="hero">
-      <div class="hero-head">
-        <nav class="nav white">
-          <div class="container">
-            <div class="nav-left">
-              <a href="/" class="nav-item is-brand">
-                <img src="./assets/logo.svg" alt="Responsive CTA Builder logo">
-              </a>
-            </div>
-            <div class="nav-right">
-              <a class="nav-item is-hidden-mobile">Features</a>
-              <a class="nav-item is-hidden-mobile">Documentation</a>
-              <a class="nav-item is-hidden-mobile">Blog</a>
-              <div class="nav-item is-hidden-mobile">
-                <div class="field is-grouped">
-                  <p class="control">
-                    <a href="https://app.responsivectabuilder.com" class="button is-primary">Login</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <span class="nav-toggle" @click="toggleNav()" :class="{ 'is-active': nav }">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-            <div class="nav-right nav-menu is-hidden-tablet" :class="{ 'is-active': nav }">
-              <a href="/" class="nav-item">Home</a>
-              <a class="nav-item">Features</a>
-              <a class="nav-item">Documentation</a>
-              <a class="nav-item">Blog</a>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-left">
+          <a href="/" class="nav-item is-brand">
+            <img src="./assets/logo.svg" alt="Responsive CTA Builder logo">
+          </a>
+        </div>
+        <div class="nav-right">
+          <a class="nav-item is-hidden-mobile">Features</a>
+          <a class="nav-item is-hidden-mobile">Documentation</a>
+          <a class="nav-item is-hidden-mobile">Blog</a>
+          <div class="nav-item is-hidden-mobile">
+            <div class="field is-grouped">
+              <p class="control">
+                <a href="https://app.responsivectabuilder.com" class="button is-primary">Login</a>
+              </p>
             </div>
           </div>
-        </nav>
+        </div>
+        <span class="nav-toggle" @click="toggleNav()" :class="{ 'is-active': nav }">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <div class="nav-right nav-menu is-hidden-tablet" :class="{ 'is-active': nav }">
+          <a href="/" class="nav-item">Home</a>
+          <a class="nav-item">Features</a>
+          <a class="nav-item">Documentation</a>
+          <a class="nav-item">Blog</a>
+        </div>
       </div>
-    </section>
+    </nav>
 
     <section class="hero is-medium">
       <div class="hero-body">
@@ -45,17 +41,28 @@
         </div>
         <div class="container">
           <div class="cta" style="border-radius: 4px; background-color: #0E589A;">
-              <div class="ctaHeadline" style="color: #ffffff;">This is a powerful, eye-catching headline</div>
-              <div class="ctaDescription" style="color: #ffffff;">This is your secondary text that might explain why your reader should follow your call-to-action.</div>
-              <a class="ctaButton" href="https://www.responsivectabuilder.com" target="_blank" style="background-color: #48A7F9; color: #ffffff;">click here, reader!</a>
+            <div class="ctaHeadline" style="color: #ffffff;">This is a powerful, eye-catching headline</div>
+            <div class="ctaDescription" style="color: #ffffff;">This is your secondary text that might explain why your reader should follow your call-to-action.</div>
+            <a class="ctaButton" href="https://www.responsivectabuilder.com" target="_blank" style="background-color: #48A7F9; color: #ffffff;">click here, reader!</a>
           </div>
         </div>
         <div class="container has-text-centered">
           <a class="button is-primary is-medium">Try Building Your Own</a>
         </div>
+      </div>
+    </section>
+
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
         <div class="container has-text-centered">
           <h3 class="title">Why should you use a <strong>Responsive CTA</strong> over an Image CTA?</h3>
         </div>
+      </div>
+    </section>
+
+    <section class="hero is-medium">
+      <div class="hero-body">
+
         <div class="container">
           <div class="columns">
             <div class="column">
@@ -93,7 +100,7 @@
       </div>
     </section>
 
-    <section class="hero is-small">
+    <section class="hero">
       <div class="hero-body has-text-centered">
         <div class="container">
           <!-- <img class="image" style="margin: 0 auto 1rem auto; max-width: 500px; width: 100%;" src="./assets/wordmark.svg" alt="Logo"> -->
@@ -124,6 +131,8 @@
         </div>
       </div>
     </section>
+
+
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
@@ -197,7 +206,8 @@ $fullhd: $grid
 
 .hero-body
   .container
-    margin-top: 64px
+    &:not(:first-child)
+      margin-top: 64px
 
 .columns
   &:not(:last-child)
