@@ -75,5 +75,7 @@
   "bugs": {
     "url": "https://github.com/buildbetterCTAs/responsivectabuilder.com/issues"
   },
-  "homepage": "https://www.responsivectabuilder.com"
+  "homepage": "https://www.responsivectabuilder.com",
+  "main": "index.html",
+  "keywords": []
 }
