@@ -269,10 +269,6 @@ $radius: 4px // sass-lint:disable-line variable-name-format
   &:not(:last-child)
     margin-bottom: 48px
 
-footer
-  a
-    font-weight: 500
-
 html
   background-color: $white
 
