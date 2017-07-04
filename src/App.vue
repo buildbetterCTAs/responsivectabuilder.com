@@ -38,21 +38,27 @@
     <!-- BODY CONTENT -->
     <section class="hero">
       <div class="hero-body">
+
         <div class="container has-text-centered">
           <h1 class="title is-spaced is-2 dodgerText">Build better calls-to-action</h1>
           <h2 class="subtitle">Responsive CTA Builder helps marketers build responsive calls-to-action which will convert more traffic into visitors than your current bitmap image call-to-action. Give it a try, for free.</h2>
         </div>
+
         <div class="container">
           <div class="is-cta-container">
             <!-- CTA -->
-            <div class="cta" style="border-radius: 4px; background-color: #0E589A;">
-              <div class="ctaHeadline" style="color: #ffffff;">This is a powerful, eye-catching headline</div>
-              <div class="ctaDescription" style="color: #ffffff;">This is your secondary text that might explain why your reader should follow your call-to-action.</div>
-              <a class="ctaButton" target="_blank" style="cursor: initial; background-color: #48A7F9; color: #ffffff;">click here, reader!</a>
+            <div :style="{ maxWidth: width + 'px' }" style="margin: 0 auto;">
+              <cta :sliderVal="width"></cta>
             </div>
             <!-- /CTA -->
+            <!-- CTA WIDTH SLIDER -->
+            <div class="width-slider">
+              <input type="range" v-model="width" min="300" max="1000">
+            </div>
+            <!-- /CTA WIDTH SLIDER -->
           </div>
         </div>
+
         <div class="container has-text-centered">
           <a href="https://app.responsivectabuilder.com" class="button is-attention is-danger is-medium">Try Building Your Own</a>
         </div>
@@ -151,47 +157,21 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="has-text-centered">
-          <img src="./assets/wordmark.svg" alt="Wordmark">
-          <div class="nav-center links">
-            <a href="#contact" class="nav-item">Contact</a>
-            <a href="https://docs.responsivectabuilder.com" target="_blank" class="nav-item">Documentation</a>
-            <a href="https://blog.responsivectabuilder.com" target="_blank" class="nav-item">Blog</a>
-            <a href="#story" class="nav-item">Story</a>
-          </div>
-          <!-- <p>Made with 💙 by <a href="https://www.reiner.io">Jeff Reiner</a> and <a href="https://twitter.com/_danieljmurphy">Daniel Murphy</a>.</p> -->
-          <p class="copyright"><small>© 2017 Daniel J. Murphy and Jeff Reiner</small></p>
-          <div class="nav-center">
-            <a class="nav-item" href="https://twitter.com/buildBetterCTAs" target="_blank">
-              <span class="icon">
-                <i class="fa fa-twitter"></i>
-              </span>
-            </a>
-            <a class="nav-item" href="https://www.facebook.com/BuildBetterCTAs" target="_blank">
-              <span class="icon">
-                <i class="fa fa-facebook"></i>
-              </span>
-            </a>
-            <a class="nav-item" href="#linkedin" target="_blank">
-              <span class="icon">
-                <i class="fa fa-linkedin"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <www-footer></www-footer>
+
   </div>
 </template>
 
 <script>
+  import cta from './components/cta'
+  import wwwFooter from './components/footer'
+
   export default {
     name: 'app',
     data: function () {
       return {
-        nav: false
+        nav: false,
+        width: 1000
       }
     },
     methods: {
@@ -202,6 +182,10 @@
           this.nav = false
         }
       }
+    },
+    components: {
+      cta,
+      'www-footer': wwwFooter
     }
   }
 </script>
@@ -274,15 +258,10 @@ $radius: 4px // sass-lint:disable-line variable-name-format
 .subtitle
   color: $text
 
-// .hero-body // sass-lint:disable-line class-name-format
-//   .container
-//     &:not(:first-child)
-//       margin-top: 64px
-
 .nav
   background-color: transparent
 
-.is-cta-container
+.is-cta-container // sass-lint:disable-line class-name-format
   margin: 64px 0
 
 .features
@@ -332,5 +311,13 @@ html
   .copyright
     margin-bottom: 32px
     margin-top: 16px
+
+.width-slider // sass-lint:disable-line class-name-format
+  margin: 0 auto
+  max-width: 1000px
+
+  input
+    &[type="range"]
+      width: 100%
 
 </style>
