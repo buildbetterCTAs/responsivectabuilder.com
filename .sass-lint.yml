@@ -47,14 +47,14 @@ rules:
   # Name Formats
   class-name-format:
     -
-    - convention: camelcase
+    - convention: hyphenatedlowercase
   function-name-format: 1
   id-name-format: 0
   mixin-name-format: 1
   placeholder-name-format: 1
   variable-name-format:
     -
-    - convention: camelcase
+    - convention: hyphenatedlowercase
 
   # Style Guide
   bem-depth: 0

@@ -20,7 +20,7 @@
       sliderVal: [String, Number]
     },
     computed: {
-      responsiveClass () {
+      responsiveClass: function () {
         const mediumLargeScreen = 800
         const mediumScreen = 768
         const smallScreen = 600
@@ -49,7 +49,7 @@
         this.displayElementWidth = this.$el.clientWidth
       }
     },
-    mounted () {
+    mounted: function () {
       this.calcWidth()
       window.addEventListener('resize', () => {
         this.calcWidth()
