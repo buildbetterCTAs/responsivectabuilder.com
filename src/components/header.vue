@@ -7,7 +7,7 @@
         </a>
       </div>
       <div class="nav-right">
-        <a href="#features" class="nav-item is-hidden-mobile">Features</a>
+        <a href="#features" class="nav-item is-hidden-mobile" v-smooth-scroll="{ duration: 1000 }">Features</a>
         <a class="nav-item is-hidden-mobile" href="https://docs.responsivectabuilder.com" target="_blank">Documentation</a>
         <a class="nav-item is-hidden-mobile" href="https://blog.responsivectabuilder.com" target="_blank">Blog</a>
         <div class="nav-item is-hidden-mobile">
@@ -25,7 +25,7 @@
       </span>
       <div class="nav-right nav-menu is-hidden-tablet" :class="{ 'is-active': nav }">
         <a href="/" class="nav-item">Home</a>
-        <a href="#features" class="nav-item">Features</a>
+        <a href="#features" class="nav-item" v-smooth-scroll="{ duration: 1000 }">Features</a>
         <a class="nav-item">Documentation</a>
         <a class="nav-item">Blog</a>
       </div>

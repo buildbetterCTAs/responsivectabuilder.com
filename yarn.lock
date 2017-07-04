@@ -4760,10 +4760,6 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-bulma-slider@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/vue-bulma-slider/-/vue-bulma-slider-1.0.2.tgz#7b8e0dd0bc2c1a7c5e77d117059847ba41eaff14"
-
 vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
@@ -4789,6 +4785,10 @@ vue-loader@^12.2.1:
 vue-range-slider@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/vue-range-slider/-/vue-range-slider-0.2.4.tgz#8b73e273718035d3203e5d1aa081c72d473fce61"
+
+vue-smooth-scroll@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/vue-smooth-scroll/-/vue-smooth-scroll-1.0.12.tgz#5377c3a87c120e20186a867102117da7e467d0b9"
 
 vue-style-loader@^3.0.0, vue-style-loader@^3.0.1:
   version "3.0.1"

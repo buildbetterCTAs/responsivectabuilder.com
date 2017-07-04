@@ -9,7 +9,7 @@
           <!-- HEADLINE -->
           <section>
             <div class="container">
-              <div class="has-text-centered" style="margin-top: 72px;">
+              <div class="has-text-centered" style="margin-top: 80px;">
                 <h1 class="title is-spaced is-2 dodger-text">Build better calls-to-action</h1>
                 <h2 class="subtitle">Responsive CTA Builder helps marketers build responsive calls-to-action which will convert more traffic into visitors than your current bitmap image call-to-action. Give it a try, for free.</h2>
               </div>
@@ -18,18 +18,23 @@
         </div>
         <div class="hero-body">
           <div class="container">
-            <!-- CTA -->
-            <div class="cta-with-slider" :style="{ maxWidth: width + 'px' }">
-              <cta :sliderVal="width"></cta>
+            <div style="text-align: right;">
+              <p>Our Responsive CTAs look like this!</p>
             </div>
-            <!-- SLIDER -->
-            <div class="width-slider">
-              <slider v-model="width" min="300" max="1000"></slider>
+            <!-- CTA -->
+            <div>
+              <div class="cta-with-slider" :style="{ maxWidth: width + 'px' }">
+                <cta :sliderVal="width"></cta>
+              </div>
+              <!-- SLIDER -->
+              <div class="width-slider">
+                <slider v-model="width" min="300" max="1000"></slider>
+              </div>
             </div>
           </div>
         </div>
         <div class="hero-footer has-text-centered">
-          <div style="margin-bottom: 64px;">
+          <div style="margin-bottom: 80px;">
             <a href="https://app.responsivectabuilder.com" class="button is-danger is-medium">Try Building Your Own</a>
           </div>
         </div>
@@ -57,6 +62,7 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
+                  <h4 class="title is-4"><strong>Works on all devices</strong></h4>
                   <p>Responsive CTAs make your call-to-action reader friendly on all devices: computers, tablets and mobile phones.</p>
                 </div>
               </div>
@@ -67,6 +73,7 @@
             <div class="container">
               <div class="columns wow slideInRight">
                 <div class="column">
+                  <h4 class="title is-4"><strong>Proven better performance</strong></h4>
                   <p>Responsive CTAs are proven to perform better than image CTAs. We’ve seen <strong>2.5x more clicks</strong> on Responsive CTAs than Image CTAs.</p>
                 </div>
                 <div class="column is-narrow"></div>
@@ -85,6 +92,7 @@
                 </div>
                 <div class="column is-narrow"></div>
                 <div class="column">
+                  <h4 class="title is-4"><strong>Works with HubSpot</strong></h4>
                   <p>You can link your HubSpot CTA tracking with our Responsive CTA Builder. Build beautiful Responsive CTAs but don’t lose any tracking or reporting capabilities.</p>
                 </div>
               </div>
@@ -95,6 +103,7 @@
             <div class="container">
               <div class="columns wow slideInRight">
                 <div class="column">
+                  <h4 class="title is-4"><strong>Enhanced SEO benefits</strong></h4>
                   <p>Forget trying to fit your long tail keywords into your alt text for an image CTA. With Responsive CTAs just add your keywords into the header, secondary text or button text.</p>
                 </div>
                 <div class="column is-narrow"></div>
@@ -105,13 +114,13 @@
             </div>
           </div>
           <!-- CTA -->
-          <div class="feature-block block3">
+          <div class="feature-block block2">
             <div class="container">
               <!-- CTA -->
-              <div class="cta" style="border-radius: 4px; background-color: #0E589A;">
-                <div class="ctaHeadline" style="color: #ffffff;">This is a powerful, eye-catching headline</div>
-                <div class="ctaDescription" style="color: #ffffff;">This is your secondary text that might explain why your reader should follow your call-to-action.</div>
-                <a class="ctaButton" target="_blank" style="cursor: initial; background-color: #48A7F9; color: #ffffff;">click here, reader!</a>
+              <div class="cta" style="border-radius: 4px; background-color: #1385E8;">
+                <div class="ctaHeadline" style="color: #ffffff;">Ready to make a beautiful, responsive CTA?</div>
+                <div class="ctaDescription" style="color: #ffffff;">Yes, it can look as good as this call-to-action AND match your company's branding guidelines.</div>
+                <a class="ctaButton" href="https://app.responsivectabuilder.com" target="_blank" style="background-color: #ff1744; color: #ffffff;">CREATE YOUR OWN CTA</a>
               </div>
               <!-- /CTA -->
             </div>
@@ -158,6 +167,7 @@
 </script>
 
 <style lang="sass">
+
 //***********
 // VARIABLES
 //***********
@@ -240,6 +250,10 @@ $subtitle: $text
 //*********
 // APP.VUE
 //*********
+
+.title
+  strong
+    color: $text-strong
 
 .subtitle
   color: $text
@@ -327,7 +341,7 @@ $knob-size: 28px
 $rail-color: #e2e2e2
 $rail-fill-color: $primary
 $knob-color: #fff
-$knob-border: 6px solid $primary
+$knob-border: 4px solid $primary
 $knob-shadow: 0 4px 6px rgba(50, 50, 93, .11),  0 1px 3px rgba(0, 0, 0, .08)
 $knob-shadow-hover: 0 7px 14px rgba(50, 50, 93, .1),  0 3px 6px rgba(0, 0, 0, .08)
 

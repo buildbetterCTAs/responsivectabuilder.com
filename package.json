@@ -11,7 +11,8 @@
   "dependencies": {
     "cta.css": "^1.0.2",
     "vue": "^2.3.4",
-    "vue-range-slider": "^0.2.4"
+    "vue-range-slider": "^0.2.4",
+    "vue-smooth-scroll": "^1.0.12"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",

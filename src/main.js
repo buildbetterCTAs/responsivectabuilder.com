@@ -4,10 +4,13 @@
 import Vue from 'vue'
 import App from './App'
 import Buefy from 'buefy'
+import vueSmoothScroll from 'vue-smooth-scroll'
 
 Vue.use(Buefy, {
   defaultTooltipAnimated: true
 })
+
+Vue.use(vueSmoothScroll)
 
 Vue.config.productionTip = false
 
