@@ -68,12 +68,14 @@
 // CTA EMBED STYLES
 //******************
 
-@import "~cta.css"
+.cta
+  transition: all .2s ease // sass-lint:disable-line no-transition-all
 
 //******************
 // JS MEDIA QUERIES
 //******************
 
+// sass-lint:disable class-name-format
 // Medium-Large & Down
 .mediumLarge,
 .medium,
@@ -135,5 +137,6 @@
 
   .ctaHeadline
     font-size: 24px
+// sass-lint:enable class-name-format
 
 </style>

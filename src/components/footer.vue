@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="has-text-centered">
-      <img src="./../assets/wordmark.svg" alt="Wordmark">
+      <img src="./../assets/wordmark.svg" alt="Responsive CTA Builder">
       <div class="nav-center links">
         <a href="#contact" class="nav-item">Contact</a>
         <a href="https://docs.responsivectabuilder.com" target="_blank" class="nav-item">Documentation</a>

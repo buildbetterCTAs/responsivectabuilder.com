@@ -3,7 +3,7 @@
     <div class="container">
       <div class="nav-left">
         <a href="/" class="nav-item is-brand">
-          <img src="./../assets/logo.svg" alt="Responsive CTA Builder logo">
+          <img src="./../assets/logo.svg" alt="Responsive CTA Builder">
         </a>
       </div>
       <div class="nav-right">

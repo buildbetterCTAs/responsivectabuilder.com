@@ -6,21 +6,25 @@
       <section class="hero is-fullheight">
         <div class="hero-head">
           <www-header></www-header>
+          <!-- HEADLINE -->
+          <section>
+            <div class="container">
+              <div class="has-text-centered" style="margin-top: 72px;">
+                <h1 class="title is-spaced is-2 dodger-text">Build better calls-to-action</h1>
+                <h2 class="subtitle">Responsive CTA Builder helps marketers build responsive calls-to-action which will convert more traffic into visitors than your current bitmap image call-to-action. Give it a try, for free.</h2>
+              </div>
+            </div>
+          </section>
         </div>
         <div class="hero-body">
           <div class="container">
-            <!-- HEADLINE -->
-            <div class="has-text-centered">
-              <h1 class="title is-spaced is-2 dodger-text">Build better calls-to-action</h1>
-              <h2 class="subtitle">Responsive CTA Builder helps marketers build responsive calls-to-action which will convert more traffic into visitors than your current bitmap image call-to-action. Give it a try, for free.</h2>
-            </div>
             <!-- CTA -->
             <div class="cta-with-slider" :style="{ maxWidth: width + 'px' }">
               <cta :sliderVal="width"></cta>
             </div>
-            <!-- WIDTH SLIDER -->
+            <!-- SLIDER -->
             <div class="width-slider">
-              <input type="range" v-model="width" min="300" max="1000">
+              <slider v-model="width" min="300" max="1000"></slider>
             </div>
           </div>
         </div>
@@ -126,6 +130,7 @@
   import cta from './components/cta'
   import wwwFooter from './components/footer'
   import wwwHeader from './components/header'
+  import slider from 'vue-range-slider'
 
   export default {
     name: 'app',
@@ -146,16 +151,20 @@
     components: {
       cta,
       'www-footer': wwwFooter,
-      'www-header': wwwHeader
+      'www-header': wwwHeader,
+      slider
     }
   }
 </script>
 
 <style lang="sass">
-// VARS
+//***********
+// VARIABLES
+//***********
 
 // COMPANY COLORS
 $picton: #48a7f9
+
 $palette-dodger: rgb(227, 240, 252) rgb(184, 218, 248) rgb(137, 194, 244) rgb(90, 170, 239) rgb(54, 151, 235) rgb(19, 133, 232) rgb(17, 125, 229) rgb(14, 114, 226) rgb(11, 104, 222) rgb(6, 85, 216)
 $dodger-50: nth($palette-dodger, 1)
 $dodger-100: nth($palette-dodger, 2)
@@ -167,29 +176,8 @@ $dodger-600: nth($palette-dodger, 7)
 $dodger-700: nth($palette-dodger, 8)
 $dodger-800: nth($palette-dodger, 9)
 $dodger-900: nth($palette-dodger, 10)
+
 $yale: #0e589a
-
-
-
-
-.picton
-  background-color: $picton !important
-
-.dodger
-  background-color: $dodger !important
-
-.yale
-  background-color: $yale !important
-
-.picton-text
-  color: $picton !important
-
-.dodger-text
-  color: $dodger !important
-
-.yale-text
-  color: $yale !important
-
 
 // BASE COLORS
 $white: #fff
@@ -221,16 +209,37 @@ $text-strong: darken($text, 8%)
 $link-hover: darken($text, 24%)
 $subtitle: $text
 
-// $radius: 4px
-
 @import "~bulma"
 @import "~buefy/src/scss/buefy"
 
-// IMPORT CSS FOR CTA
-@import "~cta.css"
+//*********
+// UTILITY
+//*********
 
+.picton
+  background-color: $picton !important
 
-// STYLES
+.dodger
+  background-color: $dodger !important
+
+.yale
+  background-color: $yale !important
+
+.picton-text
+  color: $picton !important
+
+.dodger-text
+  color: $dodger !important
+
+.yale-text
+  color: $yale !important
+
+.white
+  background-color: $white !important
+
+//*********
+// APP.VUE
+//*********
 
 .subtitle
   color: $text
@@ -241,6 +250,12 @@ $subtitle: $text
 .features
   .feature-block
     padding: 80px 0
+
+    .container
+      @media screen and (max-width: 1000px)
+        margin-left: 20px
+        margin-right: 20px
+
 
     &.block1
       background-color: darken($white, 0%)
@@ -268,19 +283,15 @@ $subtitle: $text
     &:active
       box-shadow: 0 7px 14px rgba(50, 50, 93, .1),  0 3px 6px rgba(0, 0, 0, .08)
 
-.columns
-  &:not(:last-child)
-    margin-bottom: 48px
-
-html
-  background-color: $white
-
-.white
-  background-color: $white !important
-
 .footer
   background-color: $white
-  padding: 5rem
+  padding: 5rem 0
+
+  .container
+    @media screen and (max-width: 1000px)
+      margin-left: 20px
+      margin-right: 20px
+
 
   .links
     margin-top: 24px
@@ -299,9 +310,32 @@ html
   @media only screen and (max-width: 1024px)
     display: none
 
+//*********
+// CTA.CSS
+//*********
 
-  input
-    &[type="range"]
-      width: 100%
+@import "~cta.css"
 
+//******************
+// VUE-RANGE-SLIDER
+//******************
+
+$slider-height: 48px
+$slider-width: 100%
+$rail-height: 12px
+$knob-size: 28px
+$rail-color: #e2e2e2
+$rail-fill-color: $primary
+$knob-color: #fff
+$knob-border: 6px solid $primary
+$knob-shadow: 0 4px 6px rgba(50, 50, 93, .11),  0 1px 3px rgba(0, 0, 0, .08)
+$knob-shadow-hover: 0 7px 14px rgba(50, 50, 93, .1),  0 3px 6px rgba(0, 0, 0, .08)
+
+.range-slider-knob
+  transition: box-shadow .2s ease
+
+  &:hover
+    box-shadow: $knob-shadow-hover
+
+@import "~vue-range-slider/dist/vue-range-slider.scss"
 </style>
