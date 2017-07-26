@@ -1,23 +1,31 @@
 <template>
-  <div :class="responsiveClass">
-    <div class="cta" style="border-radius: 4px; background-color: #0E589A;">
-      <div class="ctaHeadline" style="color: #fff;">This is a powerful, eye-catching headline</div>
-      <div class="ctaDescription" style="color: #fff;">This is your secondary text that might explain why your reader should follow your call-to-action.</div>
-      <a class="ctaButton" target="_blank" style="cursor: initial; background-color: #48A7F9; color: #fff;">click here, reader!</a>
+  <div>
+    <div class="cta-with-slider" :style="{ maxWidth: width + 'px' }">
+      <div :class="responsiveClass">
+        <div class="cta" style="border-radius: 4px; background-color: #0E589A;">
+          <div class="ctaHeadline" style="color: #fff;">This is a powerful, eye-catching headline</div>
+          <div class="ctaDescription" style="color: #fff;">This is your secondary text that might explain why your reader should follow your call-to-action.</div>
+          <a class="ctaButton" target="_blank" style="cursor: initial; background-color: #48A7F9; color: #fff;">click here, reader!</a>
+        </div>
+      </div>
+    </div>
+    <!-- SLIDER -->
+    <div class="width-slider">
+      <slider v-model="width" min="300" max="1000"></slider>
     </div>
   </div>
 </template>
 
 <script>
+  import slider from 'vue-range-slider'
+
   export default {
     name: 'cta',
     data: function () {
       return {
+        width: 1000,
         displayElementWidth: 0
       }
-    },
-    props: {
-      sliderVal: [String, Number]
     },
     computed: {
       responsiveClass: function () {
@@ -46,7 +54,7 @@
     },
     methods: {
       calcWidth: function () {
-        this.displayElementWidth = this.$el.clientWidth
+        this.displayElementWidth = document.getElementsByClassName('cta-with-slider')[0].clientWidth
       }
     },
     mounted: function () {
@@ -56,20 +64,66 @@
       })
     },
     watch: {
-      sliderVal: function () {
+      width: function () {
         this.calcWidth()
       }
+    },
+    components: {
+      slider
     }
   }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
+
+@import "./../assets/style/color"
+
+//******************
+// UTILITY WRAPPERS
+//******************
+
+.cta-with-slider
+  margin: 0 auto
+
+.width-slider
+  margin: 0 auto
+  max-width: 1000px
+
+  @media only screen and (max-width: 1024px)
+    display: none
+
+//******************
+// VUE-RANGE-SLIDER
+//******************
+
+$slider-height: 48px
+$slider-width: 100%
+$rail-height: 12px
+$knob-size: 28px
+$rail-color: #e2e2e2
+$rail-fill-color: $primary
+$knob-color: #fff
+$knob-border: 4px solid $primary
+$knob-shadow: 0 4px 6px rgba(50, 50, 93, .11),  0 1px 3px rgba(0, 0, 0, .08)
+$knob-shadow-hover: 0 7px 14px rgba(50, 50, 93, .1),  0 3px 6px rgba(0, 0, 0, .08)
+
+.range-slider-knob
+  transition: box-shadow .2s ease
+
+  &:hover
+    box-shadow: $knob-shadow-hover
+
+@import "~vue-range-slider/dist/vue-range-slider.scss"
+
 //******************
 // CTA EMBED STYLES
 //******************
 
+@import "~cta.css"
+
+
 .cta
-  transition: all .2s ease // sass-lint:disable-line no-transition-all
+  transition: padding .2s ease, font-size .2s ease
 
 //******************
 // JS MEDIA QUERIES
