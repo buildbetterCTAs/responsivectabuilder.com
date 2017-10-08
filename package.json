@@ -9,7 +9,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "buefy": "^0.4.6",
+    "buefy": "^0.5.0",
     "cta.css": "^1.0.2",
     "vue": "^2.3.4",
     "vue-meta": "^1.0.4",

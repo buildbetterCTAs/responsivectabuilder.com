@@ -19,7 +19,7 @@
         <div class="columns">
           <div class="column">
             <div class="box helpBox">
-              <h1 class="title is-5">Working with HubSpot</h1>
+              <h1 class="title is-5">Getting Started</h1>
               <p>Help doc description here.</p>
               <a href="">Learn</a>
             </div>

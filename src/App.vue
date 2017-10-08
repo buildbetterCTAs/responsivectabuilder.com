@@ -37,11 +37,11 @@ $grid: 1136px
 $widescreen: $grid
 $fullhd: $grid
 
-$text: #6b7c93
-$text-light: lighten($text, 8%)
-$text-strong: darken($text, 8%)
-$link-hover: darken($text, 24%)
-$subtitle: $text
+// $text: #6b7c93
+// $text-light: lighten($text, 8%)
+// $text-strong: darken($text, 8%)
+// $link-hover: darken($text, 24%)
+// $subtitle-color: $text
 
 @import "~bulma"
 @import "~buefy/src/scss/buefy"
