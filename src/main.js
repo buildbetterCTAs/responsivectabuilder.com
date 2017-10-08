@@ -13,6 +13,9 @@ import home from './components/home'
 import blog from './components/blog'
 import docs from './components/docs'
 
+// BLOG
+import introduction from './components/blog/introduction'
+
 // USES
 Vue.use(VueRouter)
 Vue.use(Meta, {
@@ -29,6 +32,7 @@ const routes = [
   { path: '/', component: home },
   { path: '/blog', component: blog },
   { path: '/docs', component: docs },
+  { path: '/blog/introduction', component: introduction },
   { path: '*', redirect: '/' } // CATCH ALL
 ]
 

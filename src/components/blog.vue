@@ -16,20 +16,20 @@
           </div>
         </section>
         <div class="columns">
-          <div class="column">
+          <div class="column is-half">
             <div class="box helpBox">
-              <h1 class="title is-5">Blog Post</h1>
-              <p>Blog Post Meta</p>
-              <router-link to="working-with-hubspot" class="nav-item is-hidden-mobile">Read</router-link>
+              <h1 class="title is-5 is-spaced">Introduction to Responsive CTA Builder</h1>
+              <p class="subtitle is-6">Introduction Meta</p>
+              <router-link to="/blog/introduction">Read</router-link>
             </div>
           </div>
-          <div class="column">
+          <!-- <div class="column">
             <div class="box helpBox">
-              <h1 class="title is-5">Blog Post</h1>
-              <p>Blog Post Meta</p>
-              <router-link to="working-with-hubspot" class="nav-item is-hidden-mobile">Read</router-link>
+              <h1 class="title is-5 is-spaced">Blog Post</h1>
+              <p class="subtitle is-6">Blog Post Meta</p>
+              <router-link to="working-with-hubspot">Read</router-link>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </main>

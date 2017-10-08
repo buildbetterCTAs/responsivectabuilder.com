@@ -8,7 +8,7 @@
       </div>
       <div class="nav-right">
         <router-link to="/#features" class="nav-item is-hidden-mobile">Features</router-link>
-        <router-link to="docs" class="nav-item is-hidden-mobile">Documentation</router-link>
+        <!-- <router-link to="docs" class="nav-item is-hidden-mobile">Documentation</router-link> -->
         <router-link to="blog" class="nav-item is-hidden-mobile">Blog</router-link>
         <div class="nav-item is-hidden-mobile">
           <div class="field is-grouped">
@@ -26,7 +26,7 @@
       <div class="nav-right nav-menu is-hidden-tablet" :class="{ 'is-active': nav }">
         <router-link to="/" class="nav-item">Home</router-link>
         <a href="/#features" class="nav-item">Features</a>
-        <router-link to="docs" class="nav-item">Documentation</router-link>
+        <!-- <router-link to="docs" class="nav-item">Documentation</router-link> -->
         <router-link to="blog" class="nav-item">Blog</router-link>
       </div>
     </div>
